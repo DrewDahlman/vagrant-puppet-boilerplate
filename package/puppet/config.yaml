@@ -1,0 +1,34 @@
+---
+vagrantfile-local:
+    ruby_version: 1.9.3-p327
+    application_name: 'brandOfYou'
+    application_path: '/vagrant'
+    environment: 'development'
+    user: 'vagrant'
+    database:
+        database_name: brandOfYou_dev
+        user: dev
+        password: secret
+    vm:
+        box: "precise32"
+        box_url: "http://files.vagrantup.com/precise32.box"
+        hostname: 'brandofyou.dev'
+        memory: '512'
+        cpus: '1'
+        chosen_provider: virtualbox
+        network:
+            private_network: 192.168.56.101
+            forwarded_port:
+                ports:
+                    host: '80'
+                    guest: '80'
+        post_up_message: "Best provision out, that's what everyone's been sayin'"
+        provision:
+            puppet:
+                manifests_path: config/puppet/manifests
+                manifest_file: vagrant.pp
+                module_path: config/puppet/modules
+                templates: /vagrant/config/puppet/templates
+                options:
+                    - '--templatedir'
+                    - '/vagrant/config/puppet/templates'
