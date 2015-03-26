@@ -1,0 +1,6 @@
+.bundle
+.rvmrc
+.rbenv-version
+pkg/*
+tmp/*
+bin/*

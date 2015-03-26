@@ -1,0 +1,9 @@
+development:
+  host: localhost
+  adapter: postgresql
+  encoding: unicode
+  database: myApp_dev
+  username: dev
+  password: secret
+  template: template0
+  pool: 5

@@ -19,6 +19,8 @@ The intention of this package is to be used to provision a local vagrant environ
  - Copy over the Vagrantfile to the root of your application
  - Copy the puppet directory into your config directory in your app
  - Modify the `config/puppet/config.yml` to your needs
+ - run `vagrant up`
+ - Once your provision completes run `vagrant reload` and go to your server in the browser!
 
 ## Config.yml
  - `ruby_version`: The version of ruby to use
@@ -56,3 +58,26 @@ The intention of this package is to be used to provision a local vagrant environ
     - `module_path`: The path to the puppet modules
     - `templates`: The path to templates to use for the application
     - `options`: Options to apply to puppet
+
+## Hosts
+You can add a new record to your hosts file to allow you to hit a custom domain for your application.
+
+ - edit your hosts file `/etc/hosts`
+ - in the first column add the IP you have in your `config.yml` file
+ - in the second column add the hostname from your `config.yml` file
+
+
+example:
+<pre>
+##
+# Host Database
+#
+# localhost is used to configure the loopback interface
+# when the system is booting.  Do not change this entry.
+##
+
+127.0.0.1       localhost
+255.255.255.255 broadcasthost
+::1             localhost
+192.168.56.101  mytestapp.dev
+</pre>

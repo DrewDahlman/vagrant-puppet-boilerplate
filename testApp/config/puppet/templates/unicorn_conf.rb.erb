@@ -1,0 +1,8 @@
+working_directory "<%= @application_path %>"
+pid "<%= @application_path %>/tmp/pids/unicorn.pid"
+stderr_path "<%= @application_path %>/log/unicorn.log"
+stdout_path "<%= @application_path %>/log/unicorn.log"
+
+listen "/tmp/unicorn.<%= @application_name %>.sock"
+worker_processes 2
+timeout 30
