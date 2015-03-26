@@ -1,12 +1,12 @@
 ---
 vagrantfile-local:
     ruby_version: 1.9.3-p327
-    application_name: 'brandOfYou'
+    application_name: 'myApp'
     application_path: '/vagrant'
     environment: 'development'
     user: 'vagrant'
     database:
-        database_name: brandOfYou_dev
+        database_name: myApp_dev
         user: dev
         password: secret
     vm:
