@@ -52,11 +52,11 @@ If you want to see the package in action just cd into the testApp directory and 
   - `chosen_provider`: The provider of the VM
 
   - Network: Network settings
-   - `private_network`: The IP you want assigned to your box ( see: hosts )
-   - forwarded_port:
-    - ports:
-     - `host`: Port from your machine to use connecting to the VM
-     - `guest`: The port to connect to on the VM
+    - `private_network`: The IP you want assigned to your box ( see: hosts )
+    - forwarded_port:
+      - ports:
+        - `host`: Port from your machine to use connecting to the VM
+        - `guest`: The port to connect to on the VM
 
   - `post_up_message`: Message to show post install and boot
 
