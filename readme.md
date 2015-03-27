@@ -16,6 +16,8 @@ Working with teams it is always a good idea to create a VM to share between team
 
 Another perk of using a VM is that you can configure it to match your live environments as to avoid again issues that might arise during development / deployment. Using this provision method you ensure that all environments match and are on the same page which saves time and headaches in configuring.
 
+If you aren't using VM's for development you should start.
+
 ## Things you should know
 The intention of this package is to be used to provision a local vagrant environment that will run Nginx + Unicorn and support a rails app with postgres. You can modify many of these settings using the config.yml file found in the puppet directory.
 
