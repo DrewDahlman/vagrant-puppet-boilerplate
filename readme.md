@@ -58,12 +58,12 @@ The default settings for the app use port 80 which allows you to access your VM 
   - `post_up_message`: Message to show post install and boot
 
   - Provision: The provisioning fun times
-   - puppet:
-     - `manifest_path`: the path to the puppet manifests
-     - `manifest_file`: The file puppet should use to configure
-     - `module_path`: The path to the puppet modules
-     - `templates`: The path to templates to use for the application
-     - `options`: Options to apply to puppet
+    - puppet:
+      - `manifest_path`: the path to the puppet manifests
+      - `manifest_file`: The file puppet should use to configure
+      - `module_path`: The path to the puppet modules
+      - `templates`: The path to templates to use for the application
+      - `options`: Options to apply to puppet
 
 ## Hosts
 You can add a new record to your hosts file to allow you to hit a custom domain for your application.
