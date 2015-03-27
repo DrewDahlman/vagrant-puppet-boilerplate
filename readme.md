@@ -18,6 +18,9 @@ The test application that is in this repo is a basic rails 4 app with Ruby 1.9.3
 
 The default settings for the app use port 80 which allows you to access your VM without having to use a specific port such as 3000. You can modify this in the config file.
 
+## Let 'er rip
+If you want to see the package in action just cd into the testApp directory and run `vagrant up` and watch the magic happen.
+
 ## How to use
  - Create a new rails app `rails new myApp`
  - Copy over the Vagrantfile to the root of your application
