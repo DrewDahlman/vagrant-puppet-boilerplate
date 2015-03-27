@@ -11,6 +11,11 @@ Will create the following environment
 ## Requirements
  - Vagrant ( http://vagrantup.com )
 
+## Why?
+Working with teams it is always a good idea to create a VM to share between team members in order to keep the environment the same and avoid any issues that might arise based on a particular machines configuration.
+
+Another perk of using a VM is that you can configure it to match your live environments as to avoid again issues that might arise during development / deployment. Using this provision method you ensure that all environments match and are on the same page which saves time and headaches in configuring.
+
 ## Things you should know
 The intention of this package is to be used to provision a local vagrant environment that will run Nginx + Unicorn and support a rails app with postgres. You can modify many of these settings using the config.yml file found in the puppet directory.
 
@@ -50,7 +55,6 @@ If you want to see the package in action just cd into the testApp directory and 
   - `memory`: The memory allocated to the VM ( default is 512 )
   - `cpus`: The CPUs allocated to the VM ( default 1 )
   - `chosen_provider`: The provider of the VM
-
   - Network: Network settings
     - `private_network`: The IP you want assigned to your box ( see: hosts )
     - forwarded_port:
