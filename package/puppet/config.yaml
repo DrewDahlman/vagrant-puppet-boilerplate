@@ -1,6 +1,6 @@
 ---
 vagrantfile-local:
-    ruby_version: 1.9.3-p327
+    ruby_version: 2.0.0p481
     application_name: 'myApp'
     application_path: '/vagrant'
     environment: 'development'
@@ -32,3 +32,9 @@ vagrantfile-local:
                 options:
                     - '--templatedir'
                     - '/vagrant/config/puppet/templates'
+        nginx:
+            application_name: ''
+        synced_folder: {  }
+        usable_port_range:
+            start: 10200
+            stop: 10500
