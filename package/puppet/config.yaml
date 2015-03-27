@@ -1,6 +1,6 @@
 ---
 vagrantfile-local:
-    ruby_version: 2.0.0p481
+    ruby_version: 1.9.3-p327
     application_name: 'myApp'
     application_path: '/vagrant'
     environment: 'development'
@@ -17,12 +17,20 @@ vagrantfile-local:
         cpus: '1'
         chosen_provider: virtualbox
         network:
-            private_network: 192.168.56.101
+            private_network: 192.168.56.102
             forwarded_port:
                 ports:
                     host: '80'
                     guest: '80'
         post_up_message: "Best provision out, that's what everyone's been sayin'"
+        provider:
+            virtualbox:
+                modifyvm:
+                    natdnshostresolver1: on
+            vmware:
+                numvcpus: 1
+            parallels:
+                cpus: 1
         provision:
             puppet:
                 manifests_path: config/puppet/manifests
@@ -32,9 +40,3 @@ vagrantfile-local:
                 options:
                     - '--templatedir'
                     - '/vagrant/config/puppet/templates'
-        nginx:
-            application_name: ''
-        synced_folder: {  }
-        usable_port_range:
-            start: 10200
-            stop: 10500

@@ -8,8 +8,8 @@
 #--------------------------------------------------------------
 # run apt-get update, but only if neccessary
 exec { "apt-get update":
-	command => "/usr/bin/apt-get update",
-	onlyif => "/bin/sh -c '[ ! -f /tmp/apt.update ] || /usr/bin/find /etc/apt -cnewer /tmp/apt.update | /bin/grep . > /dev/null'"
+  command => "/usr/bin/apt-get update",
+  onlyif => "/bin/sh -c '[ ! -f /tmp/apt.update ] || /usr/bin/find /etc/apt -cnewer /tmp/apt.update | /bin/grep . > /dev/null'"
 }
 
 # make sure apt-get update is run before
@@ -33,8 +33,8 @@ file { "bashrc":
 
 # create database.yml from template
 file { "database.yml": 
-	path => "/${user}/config/database.yml",
-	content => template("database.erb")
+  path => "/${user}/config/database.yml",
+  content => template("database.erb")
 }
 
 
@@ -53,6 +53,7 @@ rbenv::compile { "${ruby_version}":
   home    => "/home/${user}",
   global  => true
 }
+
 
 #--------------------------------------------------------------
 #
@@ -112,6 +113,23 @@ class unicorn {
   }
 }
 
+#--------------------------------------------------------------
+#
+#   Required Gems  
+#
+#--------------------------------------------------------------
+class gems {
+  package { 'rake':
+    ensure   => 'installed',
+    provider => 'gem'
+  }
 
+  package { 'bundler':
+    ensure   => 'installed',
+    provider => 'gem'
+  }
+}
+
+include gems
 include nginx
 include unicorn
