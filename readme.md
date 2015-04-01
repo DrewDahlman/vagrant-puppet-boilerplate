@@ -74,6 +74,35 @@ If you want to see the package in action just cd into the testApp directory and 
       - `templates`: The path to templates to use for the application
       - `options`: Options to apply to puppet
 
+## Neat things
+You will notice in the Vagrantfile the mention of shell scripts - 
+<pre>
+  #--------------------------------------------------------------
+  #
+  #   Starup Scripts
+  #
+  #--------------------------------------------------------------
+  config.vm.provision :shell, :inline => "sudo apt-get update --fix-missing"
+  config.vm.provision :shell, run: 'once' do |s|
+    s.path = 'config/puppet/shell/bundler.sh'
+    s.args = ['startup-once']
+  end
+
+  config.vm.provision :shell, run: 'once' do |s|
+    s.path = 'config/puppet/shell/rake.sh'
+    s.args = ['startup-once']
+  end
+
+  config.vm.provision :shell, run: 'always' do |s|
+    s.path = 'config/puppet/shell/startup.sh'
+    s.args = ['startup-always']
+  end
+</pre>
+
+These are shell scripts that are run on initial setup as well as on every startup. You will find them in the `config/puppet/shell` directory. You can add to them if you would like to take extra actions on your box.
+
+On first run once vagrant has completed it's setup and puppet has provisioned the shell scripts bundler and rake will execute. They will run a bundle install as well as rake on your databases. This ensures that everything is in place for you to quickly get started.
+
 ## Hosts
 You can add a new record to your hosts file to allow you to hit a custom domain for your application.
 
@@ -95,3 +124,11 @@ example:
 ::1             localhost
 192.168.56.101  mytestapp.dev
 </pre>
+
+## Uh oh!
+If something seems to not be working always remember:
+ - `vagrant reload` - will reload the environment you know everything is good if you see the output "Best provision out, that's what everyone's been sayin'"
+ - `vagrant provision` - Will reprovision the box
+ - `vagrant destroy` - Will toast the box and let you start over ( sometimes you just have to )
+
+Most often running vagrant reload will fix most issues. You might need to relaod your environment, that will do it.
