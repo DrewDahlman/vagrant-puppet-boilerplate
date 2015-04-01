@@ -3,7 +3,7 @@ Will create the following environment
  - Ubuntu 12.04
  - nginx
  - unicorn
- - ruby
+ - ruby ( rbenv )
   - bundler
   - rails
  - postgres
